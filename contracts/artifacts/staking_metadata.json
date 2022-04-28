@@ -382,20 +382,20 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"contracts/staking.sol": {
-			"keccak256": "0xe56d945c8a1f05f5b40528ab2a5ec8fb9719e3f3fbb550acd07f4cffbf64a0d9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://3d19e4a5b29a5866907eb00efa31f7fbfcfa6f4d2b360dedcd7197eb88955583",
-				"dweb:/ipfs/QmWD9B1CdGNhA4ytcpgGigMnkZMjSDAK75zQ8sxYheugkz"
-			]
-		},
-		"openzeppelin-solidity/contracts/utils/math/SafeMath.sol": {
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
 			"keccak256": "0x0f633a0223d9a1dcccfcf38a64c9de0874dfcbfac0c6941ccf074d63a2ce0e1e",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://864a40efcffdf408044c332a5aa38ec5618ed7b4eecb8f65faf45671bd6cdc65",
 				"dweb:/ipfs/QmQJquTMtc6fgm5JQzGdsGpA2fqBe3MHWEdt2qzaLySMdN"
+			]
+		},
+		"contracts/staking.sol": {
+			"keccak256": "0x8a71427d573dc7610ef0b0aea3d76838b82003293a8478c45f1913f14c138ec6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2ea511cdfcafa188f0cd4df7f74f2fae5b15c7cef75d1a1c7a0c67dbecebf82c",
+				"dweb:/ipfs/Qmb8XwjE1vGurxZLGtrdCjxZBUMCwGzYXw3yu1jstzNkE7"
 			]
 		}
 	},
