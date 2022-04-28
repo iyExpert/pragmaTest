@@ -3,7 +3,7 @@ pragma solidity ^0.8.2;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "openzeppelin-solidity/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract staking is Ownable {
   // Library usage
@@ -24,10 +24,10 @@ contract staking is Ownable {
   event TokensUnstaked(address _to, uint _amount);
 
   modifier isValidToken(address _tokenAddr){
-    require(validTokens[_tokenAddr]);
+    require(validTokens[_tokenAddr], "Invalid Token");
     _;
   }
-
+	
   /**
   * add token address 
   */
@@ -47,7 +47,7 @@ contract staking is Ownable {
   */
   function stake(uint _amount, address _tokenAddr, uint _daysCount) isValidToken(_tokenAddr) external payable returns (bool){
     require(_amount <= IERC20(_tokenAddr).balanceOf(msg.sender), "Not enough STATE tokens in your wallet, please try lesser amount");
-    require(IERC20(_tokenAddr).transferFrom(msg.sender, address(this), _amount));
+    require(IERC20(_tokenAddr).transferFrom(msg.sender, address(this), _amount), "transferFrom Error");
 
     if (StakeMap[_tokenAddr][msg.sender].amount == 0){
       StakeMap[_tokenAddr][msg.sender].amount = _amount;
@@ -72,6 +72,7 @@ contract staking is Ownable {
 
     tokenTotalStaked[_tokenAddr] = tokenTotalStaked[_tokenAddr].sub(_amount);
     StakeMap[_tokenAddr][msg.sender].alreadyWithdrawn = StakeMap[_tokenAddr][msg.sender].alreadyWithdrawn.add(_amount);
+	StakeMap[_tokenAddr][msg.sender].amount = StakeMap[_tokenAddr][msg.sender].amount.sub(_amount);
 
     emit TokensUnstaked(msg.sender, _amount);
     return true;
